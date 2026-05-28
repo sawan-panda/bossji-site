@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome Boss Ji</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="welcome-page">
+    <div class="cursor-spotlight" id="cursorSpotlight" aria-hidden="true"></div>
+    <div class="custom-cursor" id="customCursor" aria-hidden="true">
+      <span class="custom-cursor-bow">&#127872;</span>
+    </div>
+    <div class="memory-floats" aria-hidden="true">
+      <img class="float-icon float-boy" src="assets/background-icons/match-boy.jpg" alt="" />
+      <img class="float-icon float-girl" src="assets/background-icons/match-girl.jpg" alt="" />
+      <img class="float-icon float-cat-sleep" src="assets/background-icons/match-cat-sleep.jpg" alt="" />
+      <img class="float-icon float-cat-love" src="assets/background-icons/match-cat-love.jpg" alt="" />
+    </div>
+    <main class="page-shell">
+      <section class="hero-card">
+        <div class="hero-glow hero-glow-left" aria-hidden="true"></div>
+        <div class="hero-glow hero-glow-right" aria-hidden="true"></div>
+        <div class="hero-stack">
+          <div class="hero-content">
+            <div class="hero-text-panel">
+              <div class="hero-banner">
+                <p class="hero-kicker">For Boss Ji</p>
+                <div class="hero-tag-wrap">
+                  <div class="hero-tag-sparkles" id="tagSparkles" aria-hidden="true"></div>
+                  <div class="hero-tag" id="rotatingTag" aria-live="polite">
+                  A little place made only for you &#10024;
+                  </div>
+                </div>
+                <div class="welcome-title-wrap">
+                  <span class="welcome-orbit welcome-orbit-left" aria-hidden="true">&#129535;</span>
+                  <h1>Welcome</h1>
+                  <span class="welcome-orbit welcome-orbit-right" aria-hidden="true">&#129535;</span>
+                </div>
+                <p class="hero-subtitle">This site is completely dedicated to Boss Ji.</p>
+              </div>
+              <div class="hero-copy-panel">
+                <p class="hero-copy">
+                  A small and special place made with love, where every memory,
+                  every moment, and every little feeling will be kept safely.
+                </p>
+                <p class="hero-copy hero-copy-soft">
+                  We will build it slowly, filling it with happiness, warmth, and
+                  little things that always bring a smile to your face.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="Boss Ji memories">
+            <div class="visual-strip">
+              <div class="visual-card">
+                <figure class="photo-frame featured-photo">
+                  <span class="crown-badge" aria-hidden="true">&#128081;</span>
+                  <img src="assets/boss-ji-pink.jpg" alt="Soft pink portrait illustration" />
+                </figure>
+              </div>
+
+              <div class="visual-card">
+                <figure class="photo-frame">
+                  <img src="assets/boss-ji-bear.jpg" alt="Cute teddy with glasses reading a book" />
+                </figure>
+              </div>
+            </div>
+          </div>
+
+          <div class="cta-row">
+            <button class="main-button" id="openPassword" type="button">
+              &#128150; Ur Fav Place &#128081;&#10084;&#65039;
+            </button>
+            <a class="mini-game-button" href="game.html">
+              <span class="pulse-ring pulse-ring-one" aria-hidden="true"></span>
+              <span class="pulse-ring pulse-ring-two" aria-hidden="true"></span>
+              <span class="pulse-ring pulse-ring-three" aria-hidden="true"></span>
+              <span class="mini-game-button-text">Play tiny game</span>
+              <span class="mini-game-button-spark" aria-hidden="true">&#10022;</span>
+            </a>
+            <p class="button-note">Tap gently and enter the secret gate.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal-backdrop hidden" id="passwordModal" aria-hidden="true">
+      <section
+        class="password-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="passwordTitle"
+      >
+        <button class="close-button" id="closePassword" type="button" aria-label="Close">
+          &times;
+        </button>
+        <p class="modal-kicker">A tiny secret gate</p>
+        <h2 id="passwordTitle">Enter the password</h2>
+        <p class="modal-copy">
+          A special place deserves a special key. Enter the password to continue.
+        </p>
+        <form id="passwordForm" class="password-form">
+          <label class="sr-only" for="passwordInput">Password</label>
+          <input
+            id="passwordInput"
+            name="password"
+            type="password"
+            placeholder="Enter password"
+            autocomplete="current-password"
+          />
+          <button class="main-button small" type="submit">Open &#10024;</button>
+          <p class="error-message" id="passwordError" aria-live="polite"></p>
+        </form>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
