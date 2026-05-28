@@ -10,6 +10,14 @@ const spotlight = document.getElementById("cursorSpotlight");
 const customCursor = document.getElementById("customCursor");
 const rotatingTag = document.getElementById("rotatingTag");
 const tagSparkles = document.getElementById("tagSparkles");
+const openLoveGame = document.getElementById("openLoveGame");
+const loveGameModal = document.getElementById("loveGameModal");
+const closeLoveGame = document.getElementById("closeLoveGame");
+const loveQuestionScreen = document.getElementById("loveQuestionScreen");
+const promiseScreen = document.getElementById("promiseScreen");
+const gameArena = document.getElementById("gameArena");
+const yesChoice = document.getElementById("yesChoice");
+const noChoice = document.getElementById("noChoice");
 
 const rotatingMessages = [
   "A little place made only for you \u2728",
@@ -49,6 +57,61 @@ function hideModal() {
   modal.setAttribute("aria-hidden", "true");
   form.reset();
   errorMessage.textContent = "";
+}
+
+function resetLoveGame() {
+  loveQuestionScreen?.classList.remove("hidden");
+  promiseScreen?.classList.add("hidden");
+
+  if (yesChoice) {
+    yesChoice.style.left = "18%";
+    yesChoice.style.top = "50%";
+  }
+}
+
+function showLoveGame() {
+  loveGameModal?.classList.remove("hidden");
+  loveGameModal?.setAttribute("aria-hidden", "false");
+  resetLoveGame();
+}
+
+function hideLoveGame() {
+  loveGameModal?.classList.add("hidden");
+  loveGameModal?.setAttribute("aria-hidden", "true");
+  resetLoveGame();
+}
+
+function moveYesChoice() {
+  if (!gameArena || !yesChoice) {
+    return;
+  }
+
+  yesChoice.classList.add("is-devil");
+
+  const arenaWidth = gameArena.clientWidth;
+  const arenaHeight = gameArena.clientHeight;
+  const buttonWidth = yesChoice.offsetWidth;
+  const buttonHeight = yesChoice.offsetHeight;
+  const maxLeft = Math.max(0, arenaWidth - buttonWidth - 12);
+  const maxTop = Math.max(0, arenaHeight - buttonHeight - 12);
+  const left = Math.floor(Math.random() * maxLeft) + 6;
+  const top = Math.floor(Math.random() * maxTop) + 6;
+
+  yesChoice.style.left = `${left}px`;
+  yesChoice.style.top = `${top}px`;
+
+  setTimeout(() => {
+    yesChoice.classList.remove("is-devil");
+  }, 650);
+}
+
+function showPromiseScreen() {
+  loveQuestionScreen?.classList.add("hidden");
+  promiseScreen?.classList.remove("hidden");
+}
+
+if (gameArena && !loveGameModal) {
+  resetLoveGame();
 }
 
 if (rotatingTag) {
@@ -100,6 +163,13 @@ document.addEventListener("mouseup", () => {
 
 openButton?.addEventListener("click", showModal);
 closeButton?.addEventListener("click", hideModal);
+openLoveGame?.addEventListener("click", showLoveGame);
+closeLoveGame?.addEventListener("click", hideLoveGame);
+yesChoice?.addEventListener("click", (event) => {
+  event.preventDefault();
+  moveYesChoice();
+});
+noChoice?.addEventListener("click", showPromiseScreen);
 
 modal?.addEventListener("click", (event) => {
   if (event.target === modal) {
@@ -107,9 +177,23 @@ modal?.addEventListener("click", (event) => {
   }
 });
 
+loveGameModal?.addEventListener("click", (event) => {
+  if (event.target === loveGameModal) {
+    hideLoveGame();
+  }
+});
+
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && modal && !modal.classList.contains("hidden")) {
     hideModal();
+  }
+
+  if (
+    event.key === "Escape" &&
+    loveGameModal &&
+    !loveGameModal.classList.contains("hidden")
+  ) {
+    hideLoveGame();
   }
 });
 
