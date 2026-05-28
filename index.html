@@ -79,6 +79,9 @@
             <button class="main-button" id="openPassword" type="button">
               &#128150; Ur Fav Place &#128081;&#10084;&#65039;
             </button>
+            <button class="mini-game-button" id="openLoveGame" type="button">
+              Play tiny game
+            </button>
             <p class="button-note">Tap gently and enter the secret gate.</p>
           </div>
         </div>
@@ -112,6 +115,35 @@
           <button class="main-button small" type="submit">Open &#10024;</button>
           <p class="error-message" id="passwordError" aria-live="polite"></p>
         </form>
+      </section>
+    </div>
+
+    <div class="modal-backdrop hidden" id="loveGameModal" aria-hidden="true">
+      <section
+        class="game-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="loveGameTitle"
+      >
+        <button class="close-button" id="closeLoveGame" type="button" aria-label="Close">
+          &times;
+        </button>
+        <div class="game-screen" id="loveQuestionScreen">
+          <p class="modal-kicker">Tiny truth test</p>
+          <h2 id="loveGameTitle">U love me?</h2>
+          <div class="game-arena" id="gameArena">
+            <button class="game-choice yes-choice" id="yesChoice" type="button">
+              Yes
+            </button>
+            <button class="game-choice no-choice" id="noChoice" type="button">
+              No
+            </button>
+          </div>
+        </div>
+        <div class="game-screen hidden" id="promiseScreen">
+          <p class="modal-kicker">Congratulations</p>
+          <h2>Ur promise is alive</h2>
+        </div>
       </section>
     </div>
 
